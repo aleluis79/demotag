@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Tags</title>        
+    <link href="./libs/token-autocomplete.css" rel="stylesheet" type="text/css" media="all">
+    <script src="./libs/token-autocomplete.js" type="text/javascript"></script>
+</head>
+<body>
+    
+    <form>
+        <div id="sample"></div>
+    </form>    
+    <script>
+    
+        let datosIniciales = ['uno', 'dos', 'tres'];
+
+        let tokenAutocomplete = new TokenAutocomplete({
+            name: 'sample',
+            selector: '#sample',
+            noMatchesText: 'No matching results...',
+            initialTokens: datosIniciales,
+            initialSuggestions: ['apple', 'banana', 'donut', 'pizza', 'burger', 'pancake','potatos','pistacho']
+        });
+
+        //tokenAutocomplete.debug(true);
+
+        function seleccionados() {
+            let items = [];
+            Array.apply(null,  document.getElementById('sample-select').options).map(x => items.push(x.text));
+            console.log(items.join(","));
+        }
+
+    </script>    
+</body>
+</html>
